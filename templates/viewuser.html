@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Cred.IT</title>
+  <!--stylesheet-->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" type="text/css">
+  <link href="{{url_for('static', filename='css/custom-responsive-styles.css')}}" rel="stylesheet" type="text/css">
+  <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+  <!--scripts-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/all-plugins.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/plugins-activate.js')}}"></script>
+</head>
+
+<body id="page-top">
+  <!-- Navigation -->
+  <div class="logo">
+    <i class="fa fa-dollar" aria-hidden="true"><span>Cred.IT</span></i>
+  </div>
+  <a class="menu-toggle rounded" href="#">
+    <i class="fa fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a href="#Header"></a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="{{ url_for('home') }}">Home</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="{{ url_for('home') }}#About">About</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="{{ url_for('home') }}#Services">Services</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="{{ url_for('home') }}#SiteMap">SiteMap</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="{{ url_for('home') }}#Contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Header Starts -->
+  <section id="Banner" class="content-section">
+    <div class="cont container content-wrap text-center">
+      <div class="text center small-pop">
+        <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong></strong> {{message}}
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="col-sm-6">
+          <h3 class="user-name"><br><br>{{ user[0][1] }}<h3>
+        </div>
+        <div class="col-sm-6">
+          <h6 class="user-info">
+            Age: {{user[0][2]}}
+            <br><br>Email-ID: {{user[0][3]}}
+          </h6>
+          <h5 class="user-info"><br><br><br><br><br><br><br>Credit Balance: {{user[0][4]}}<h5>
+          <div>
+            <br><br><br><a class="btn btn-primary btn-xl" href={{ url_for('hub', uid=user[0][0])}}>Transfer Credits</a>
+          </div>
+        </div>
+        <div class="cont container content-wrap text-center">
+          <div class="user-info">
+            <table id="table1" class="table table-striped single">
+              <thead class="single trs">
+                <tr>
+                  <th class="single text-center trs">Transaction History</th>
+                </tr>
+              </thead>
+              <tbody class="single">
+                {%for i in range(1,transactions[0]+1)%}
+                <tr>
+                  <td class="single text-center">{{transactions[i]}}</td>
+                </tr>
+                {%endfor%}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </section>
+  <script>
+  $(document).ready(function(){
+      if({{message|tojson}}==""){
+        $('.small-pop').hide();
+      }
+  });
+  </script>
+  <!-- Header Ends -->
+
+  <footer class="footer text-center">
+    <div class="container">
+      <p class="text-muted small mb-0">Copyright © Cred.IT 2020</p>
+      <p class="text-muted small mb-0">Developed by <a href="https://samarmusthafa2014.wixsite.com/home" target="_balnk">Samar Musthafa</p>
+    </div>
+  </footer>
+</body>
+
+</html>

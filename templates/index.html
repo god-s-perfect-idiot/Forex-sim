@@ -1,0 +1,197 @@
+  <!DOCTYPE html>
+  <html lang="">
+  	<head>
+  		<meta charset="utf-8">
+  		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<title>Forex Gym</title>
+
+  		<!-- Bootstrap CSS -->
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  		<!-- Google Fonts -->
+  		<link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
+  		<!-- Font Awesome -->
+  		<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+  		<!-- Style -->
+  		<link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css">
+
+  		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  		<!--[if lt IE 9]>
+  			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+  			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  		<![endif]-->
+  	</head>
+  	<body>
+  		<nav class="navbar navbar-default" role="navigation">
+  			<div class="container">
+  				<!-- Brand and toggle get grouped for better mobile display -->
+  				<div class="navbar-header">
+  					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+  						<span class="sr-only">Toggle navigation</span>
+  						<span class="icon-bar"></span>
+  						<span class="icon-bar"></span>
+  						<span class="icon-bar"></span>
+  					</button>
+  					<a class="navbar-brand" href={{url_for('home')}}>Forex Gym</a>
+  				</div>
+
+  				<!-- Collect the nav links, forms, and other content for toggling -->
+  				<div class="collapse navbar-collapse navbar-ex1-collapse">
+  					<ul class="nav navbar-nav navbar-right">
+  						<li><a href={{url_for('home')}}>Home</a></li>
+  						<li><a href="#About">About Me</a></li>
+  						<li><a href="https://samarmusthafa2014.wixsite.com/home">Blog</a></li>
+              <li><a href="#Services">Services</a></li>
+  						<li><a href="#Contact">Contact</a></li>
+  					</ul>
+  				</div><!-- /.navbar-collapse -->
+  			</div>
+  		</nav>
+
+		<!-- START SECTION -->
+  		<div class="section hero text-center background-dark dark-bg">
+  			<div class="background-image" style="background: url('/static/images/hero.jpg') no-repeat center center; background-size: cover; opacity: .2;"></div>
+  			<div class="container">
+  				<div class="row">
+  					<div class="col-md-12">
+  						<h2>Forex Gym</h2>
+  						<p class="lead">Practise binary trading using close-to-real forex values.</p>
+  						<ul class="list-inline">
+  							<li><a href={{url_for('hub')}} title="Learn More" class="btn btn-md btn-primary">Launch my Account</a></li>
+  						</ul>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		<!--/.section -->
+
+  		<!-- START SECTION -->
+  		<div id="Services" class="section background-light">
+  			<div class="container">
+  				<div class="row">
+  					<div class="col-md-12 text-center">
+  						<h2 class="section-title">Services</h2>
+  						<p class="section-description">What it can do. Or will be, in the near future, hopefully.</p>
+  					</div>
+  					<div class="col-md-4">
+  						<div class="service-block text-center">
+  							<i class="fa fa-money"></i>
+  							<h3>Demo Account management</h3>
+  							<p>Make calls. Earn or lose money. Explore just how volatile Binary trading really is.</p>
+  						</div><!--/.service-block-->
+  					</div>
+  					<div class="col-md-4">
+  						<div class="service-block text-center">
+  							<i class="fa fa-btc"></i>
+  							<h3>Multiple Forex rates</h3>
+  							<p>Access mulitple forex rates and invest accordingly. (WIP)</p>
+  						</div><!--/.service-block-->
+  					</div>
+  					<div class="col-md-4">
+  						<div class="service-block text-center">
+  							<i class="fa fa-hourglass-3"></i>
+  							<h3>Real Time Data</h3>
+  							<p>Get actual realtime exchange rates. (WIP, for like, forever, probably)</p>
+  						</div><!--/.service-block-->
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		<!--/.section -->
+
+  		<!-- START SECTION -->
+  		<div id = "About" class="section hero text-center background-dark dark-bg">
+  			<div class="background-image" style="background: url('/static/images/hero.jpg') no-repeat fixed center center; background-size: cover; opacity: .2;"></div>
+  			<div class="container">
+  				<div class="row">
+  					<div class="col-md-12">
+  						<h3 class="text-uppercase letter-spacing-md font-weight-lg margin-zero">About Me</h3>
+              <p class="lead">Samar Musthafa.
+                <br>Data scientist, Content writer and dedicated Python Developer.
+                <br>That one person you will run to, to get the job done.</p>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		<!-- START SECTION -->
+  		<div id="Contact" class="section">
+  			<div class="container">
+  				<div class="row">
+  					<div class="col-md-12 text-center">
+  						<h2 class="section-title">Leave a suggestion</h2>
+  						<p class="section-description">Thank you for taking your time to check this out. You're awesome. <br/>Kindly leave a review (or hate speech).</p>
+  					</div>
+  					<div class="col-md-8 col-md-offset-2">
+  						<form id="contact" method="post" class="form" role="form">
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<input class="form-control" id="name" name="name" placeholder="Name" type="text" required />
+								</div>
+								<div class="col-md-6 form-group">
+									<input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
+								</div>
+							</div>
+							<textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
+							<br />
+							<div class="row">
+								<div class="col-md-12 form-group">
+									<button class="btn btn-primary" type="submit">Submit</button>
+								</div>
+							</div>
+						</form>
+  					</div>
+  				</div><!--/.row-->
+  			</div><!--/.container-->
+  		</div>
+  		<!--/.section -->
+
+  		<!-- START SECTION -->
+  		<div class="section background-dark dark-bg">
+  			<div class="container">
+  				<div class="row">
+  					<div class="col-md-3">
+  						<h3 class="text-uppercase font-size-md letter-spacing-md font-weight-lg ">Contact Me</h3>
+  						<p>If you found any issues, or would like to see my other works, or to buy me a coffee, HMU.</p>
+  					</div>
+  					<div class="col-md-4 col-md-offset-1">
+  						<h3 class="text-uppercase font-size-md letter-spacing-md font-weight-lg ">Developer Profiles</h3>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></span><span class="c-info"><a href="https://www.linkedin.com/in/samar-musthafa-og/">&nbsp;&nbsp;&nbsp;LinkedIn</a></span>
+              </div>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-github" aria-hidden="true"></i></span><span class="c-info"><a href="https://github.com/god-s-perfect-idiot">&nbsp;&nbsp;&nbsp;GitHub</a></span>
+              </div>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-header" aria-hidden="true"></i></span><span class="c-info"><a href="https://www.hackerearth.com/@samarmusthafa2014">&nbsp;&nbsp;&nbsp;HackerEarth</a></span>
+              </div>
+  					</div>
+  					<div class="col-md-4">
+  						<h3 class="text-uppercase font-size-md letter-spacing-md font-weight-lg ">Social Media Profiles</h3>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-instagram" aria-hidden="true"></i></span><span class="c-info"><a href="https://www.instagram.com/aberrant_entropy/">&nbsp;&nbsp;&nbsp;Instagram</a></span>
+              </div>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-twitter" aria-hidden="true"></i></span><span class="c-info"><a href="https://twitter.com/Samar29423177">&nbsp;&nbsp;&nbsp;Twitter</a></span>
+              </div>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-globe" aria-hidden="true"></i></span><span class="c-info"><a href="https://samarmusthafa2014.wixsite.com/home">&nbsp;&nbsp;&nbsp;Wix</a></span>
+              </div>
+  					</div>
+  					<div class="col-md-12 margin-top-md margin-bottom-md" style="opacity: .2;">
+  						<hr/>
+  					</div>
+  					<div class="col-md-12 margin-top-md text-center font-size-sm text-upercase">
+  						<p>© <a href="#" title="forexgym"><strong>Forex Gym</strong></a>. Template: <a href="http://freebootstraptemplate.com" title="Free Bootstrap Template"><strong>Free Bootstrap Template</strong></a>.</p>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		<!--/.section -->
+
+  		<!-- jQuery -->
+  		<script src="//code.jquery.com/jquery.js"></script>
+  		<!-- Bootstrap JavaScript -->
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  	</body>
+  </html>

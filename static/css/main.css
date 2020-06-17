@@ -1,0 +1,242 @@
+table{
+    width: 716px; /* 140px * 5 column + 16px scrollbar width */
+    border-spacing: 0;
+}
+table.single{
+  padding-top: 200px;
+}
+
+tbody, thead tr { display: block; }
+
+tbody {
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+thead.trs{
+  display: table;
+  text-align: center;
+  margin: auto;
+}
+
+tbody td.multi, thead th.multi {
+    width: 32%;
+}
+
+thead th.mutli:last-child {
+    width: 32%; /* 140px + 16px scrollbar width */
+}
+
+tbody td.single, thead th.single {
+    width: 100%;
+}
+
+thead th.single:last-child {
+    width: 100%; /* 140px + 16px scrollbar width */
+}
+
+
+a.anchor-color:active {
+  color:white;
+}
+a.anchor-color:hover {
+  color:#DEDEDE;
+}
+a.anchor-color:visited {
+  color:white;
+}
+a.anchor-color:link {
+  color:white;
+}
+.user-name{
+  text-align: left;
+}
+.user-info{
+  text-align: right;
+}
+table.single{
+  width:auto;
+  margin-right: 0px;
+  margin-left:auto;
+}
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  width: 200px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.big {
+  font-size: 1.2em;
+}
+
+.small {
+  font-size: .7em;
+}
+
+.square {
+  width: .7em;
+  height: .7em;
+  margin: .5em;
+  display: inline-block;
+}
+
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px; /* demo only */
+}
+
+.custom-dropdown select {
+  background-color: transparent;
+  color: #fff;
+  font-size: inherit;
+  padding: .5em;
+  padding-right: 2.5em;
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown::after { /*  Custom dropdown arrow */
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+.custom-dropdown::before { /*  Custom dropdown arrow cover */
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.custom-dropdown select[disabled] {
+  color: rgba(0,0,0,.3);
+}
+
+.custom-dropdown select[disabled]::after {
+  color: rgba(0,0,0,.1);
+}
+
+.custom-dropdown::before {
+  background-color: rgba(0,0,0,.15);
+}
+
+.custom-dropdown::after {
+  color: rgba(0,0,0,.4);
+}
+.off-right{
+  margin-right: 50px;
+
+}
+.bg {
+  display: block;
+  background-size: cover;
+  width: 100%;
+  position: relative;
+}
+input.transparent {
+  background: rgba(255,255,255,0.4);
+  border: none;
+  position: relative;
+  display: block;
+  outline: none;
+  width: 400px;
+  height: 30p;
+  top: 200px;
+  margin: 0 auto;
+  padding: 10px;
+  color: #333;
+  -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+}
+.send-to{
+  padding-top:150px;
+}
+.error{
+  visibility: hidden;
+  margin-top: 180px;
+  color:red;
+  text-align:center;
+}
+.small-pop{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+::-webkit-input-placeholder { color: #666;}
+:-moz-placeholder { color: #666; }
+::-moz-placeholder { color: #666; }
+:-ms-input-placeholder { color: #666; }
