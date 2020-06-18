@@ -60,6 +60,24 @@
     <div class="container">
       <div class="row">
         <div class="graph">
+          <div class="col-md-12 leads">
+            <div class="col-md-6 current">
+              <label id="currentval"></label>
+            </div>
+            <div class="col-md-6 wallet">
+              <div class="col-md-12 walab">
+                <div class="col-md-4">
+                  <i class="fa fa-dollar"></i>
+                </div>
+                <div class="col-md-4 lef balance">
+                  <label class="balance">1000</label>
+                </div>
+                <div class="col-md-4 lef">
+                  <button class="round2"><i class="fa fa-refresh"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="col-md-12">
             <div class="col-md-8">
               <canvas id="line-chart" width="150" height="100"></canvas>
@@ -92,7 +110,7 @@
                     <div class="col-md-9">
                       <div class="">
                         <div class="resp-textbox">
-                          <input type="text" placeholder="Enter Timer"/>
+                          <input type="text" placeholder="Enter duration"/>
                         </div>
                       </div>
                     </div>
@@ -104,6 +122,12 @@
                     <div class="col-md-6">
                       <button class="round1">-</button>
                     </div>
+                  </div>
+                  <div class="col-md-12 box">
+                    <button class="up">UP &nbsp;&nbsp;&nbsp;<i class="fa fa-sort-asc"></i></button>
+                  </div>
+                  <div class="col-md-12 box">
+                    <button class="down">DOWN &nbsp;&nbsp;&nbsp;<i class="fa fa-sort-desc"></i></button>
                   </div>
               </div>
             </div>
@@ -137,6 +161,7 @@ function runf(){
   			}
   		});
 
+$('#currentval').text('Current value: '+window.arr[20]);
 
 new Chart(document.getElementById("line-chart"), {
   type: 'line',
@@ -145,7 +170,8 @@ new Chart(document.getElementById("line-chart"), {
     datasets: [{
         data: window.arr,
         borderColor: "#3e95cd",
-        fill: false
+        fill: true,
+        backgroundColor: "#4fa6de11",
       }
     ]
   },
