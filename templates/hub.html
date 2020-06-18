@@ -90,17 +90,17 @@
                   <div class="col-md-9">
                     <div class="">
                       <div class="resp-textbox">
-                        <input type="text" placeholder="Enter Amount"/>
+                        <input id="amount" type="text" placeholder="Enter Amount" value="100"/>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-12 box">
                   <div class="col-md-6">
-                    <button class="round1">+</button>
+                    <button class="round1">-</button>
                   </div>
                   <div class="col-md-6">
-                    <button class="round1">-</button>
+                    <button class="round1">+</button>
                   </div>
                 </div>
                 <div class="col-md-12 box box2">
@@ -110,24 +110,28 @@
                     <div class="col-md-9">
                       <div class="">
                         <div class="resp-textbox">
-                          <input type="text" placeholder="Enter duration"/>
+                          <input id="duration" type="text" placeholder="Enter duration" value="1" />
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-12 box">
                     <div class="col-md-6">
-                      <button class="round1">+</button>
-                    </div>
-                    <div class="col-md-6">
                       <button class="round1">-</button>
                     </div>
+                    <div class="col-md-6">
+                      <button class="round1">+</button>
+                    </div>
+                  </div>
+                  <div class="col-md-12 status">
+                    <label class="stat1">Bid Amount: 100</label><br>
+                    <label class="stat2">Call: 76</label>
                   </div>
                   <div class="col-md-12 box">
-                    <button class="up">UP &nbsp;&nbsp;&nbsp;<i class="fa fa-sort-asc"></i></button>
+                    <button class="up" id="up">UP &nbsp;&nbsp;&nbsp;<i class="fa fa-sort-asc"></i></button>
                   </div>
                   <div class="col-md-12 box">
-                    <button class="down">DOWN &nbsp;&nbsp;&nbsp;<i class="fa fa-sort-desc"></i></button>
+                    <button class="down" id="down">DOWN &nbsp;&nbsp;&nbsp;<i class="fa fa-sort-desc"></i></button>
                   </div>
               </div>
             </div>
@@ -138,6 +142,42 @@
 
 <script type="text/javascript">
 
+var called = 0;
+var calls = "";
+var timer = 0;
+
+$("#up").click(function(){
+  if(calls!="up" && calls!="down"){
+    var amount = $("#amount").val();
+    var duration = $("#duration").val();
+    if(parseInt(amount)>0 && parseInt(duration)>0){
+      window.called = arr[20];
+      window.calls = "up";
+      window.timer = 60;
+      $(".stat1").text("Bid Amount: "+amount);
+      $(".stat1").css('visibility','visible');
+      $(".stat2").text("Call: "+arr[20]+" UP");
+      $(".stat2").css('visibility','visible');
+    }
+  }
+});
+
+$("#down").click(function(){
+  if(calls!="up" && calls!="down"){
+    var amount = $("#amount").val();
+    var duration = $("#duration").val();
+    if(parseInt(amount)>0 && parseInt(duration)>0){
+      window.called = arr[20];
+      window.calls = "down";
+      window.timer = 60;
+      $(".stat1").text("Bid Amount: "+amount);
+      $(".stat1").css('visibility','visible');
+      $(".stat2").text("Call: "+arr[20]+" DOWN");
+      $(".stat2").css('visibility','visible');
+    }
+  }
+});
+
 var arr = [];
 {%for i in range(21)%}
   arr.push(parseFloat('{{data[i]}}'));
@@ -146,6 +186,35 @@ var arr = [];
 setInterval(runf,1000);
 
 function runf(){
+
+  if(window.timer>0){
+    window.timer = window.timer - 1;
+  }
+  else{
+    window.calls = "";
+    window.called = 0;
+    $(".stat1").css('visibility','hidden');
+    $(".stat2").css('visibility','hidden');
+  }
+
+  if(window.calls == "down"){
+    if(arr[20]>window.called){
+      $(".stat2").css('color','#e73333');
+    }
+    else{
+      $(".stat2").css('color','#4CAF50');
+    }
+  }
+
+  if(window.calls == "up"){
+    if(arr[20]<window.called){
+      $(".stat2").css('color','#e73333');
+    }
+    else{
+      $(".stat2").css('color','#4CAF50');
+    }
+  }
+
 
   $.ajax({
   			url: '/refresh',
