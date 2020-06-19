@@ -70,10 +70,10 @@
                   <i class="fa fa-dollar"></i>
                 </div>
                 <div class="col-md-4 lef balance">
-                  <label class="balance">1000</label>
+                  <label id="balanc" class="balance">1000</label>
                 </div>
                 <div class="col-md-4 lef">
-                  <button class="round2"><i class="fa fa-refresh"></i></button>
+                  <button id="refresh" class="round2"><i class="fa fa-refresh"></i></button>
                 </div>
               </div>
             </div>
@@ -97,10 +97,10 @@
                 </div>
                 <div class="col-md-12 box">
                   <div class="col-md-6">
-                    <button class="round1">-</button>
+                    <button id="subam" class="round1">-</button>
                   </div>
                   <div class="col-md-6">
-                    <button class="round1">+</button>
+                    <button id="addam" class="round1">+</button>
                   </div>
                 </div>
                 <div class="col-md-12 box box2">
@@ -117,10 +117,10 @@
                   </div>
                   <div class="col-md-12 box">
                     <div class="col-md-6">
-                      <button class="round1">-</button>
+                      <button id="subdur" class="round1">-</button>
                     </div>
                     <div class="col-md-6">
-                      <button class="round1">+</button>
+                      <button id="adddur" class="round1">+</button>
                     </div>
                   </div>
                   <div class="col-md-12 status">
@@ -145,6 +145,38 @@
 var called = 0;
 var calls = "";
 var timer = 0;
+var amount = 0;
+
+$("#refresh").click(function(){
+  $("#balanc").text(1000);
+});
+
+$("#subam").click(function(){
+  var amount = $("#amount").val();
+  if(amount > 100){
+    $("#amount").val(amount-100);
+  }
+});
+
+$("#addam").click(function(){
+  var amount = parseInt($("#amount").val());
+  amount+=100;
+  if(parseInt($("#balanc").text()) >= amount){
+    $("#amount").val(amount);
+  }
+});
+
+$("#subdur").click(function(){
+  var duration = parseInt($("#duration").val());
+  if(duration > 1){
+    $("#duration").val(duration-1);
+  }
+});
+
+$("#adddur").click(function(){
+  var duration = parseInt($("#duration").val());
+    $("#duration").val(duration+1);
+});
 
 $("#up").click(function(){
   if(calls!="up" && calls!="down"){
@@ -153,7 +185,10 @@ $("#up").click(function(){
     if(parseInt(amount)>0 && parseInt(duration)>0){
       window.called = arr[20];
       window.calls = "up";
-      window.timer = 60;
+      window.timer = duration*5;
+      window.amount = amount;
+      balance = parseInt($("#balanc").text());
+      $("#balanc").text(balance - amount);
       $(".stat1").text("Bid Amount: "+amount);
       $(".stat1").css('visibility','visible');
       $(".stat2").text("Call: "+arr[20]+" UP");
@@ -169,7 +204,10 @@ $("#down").click(function(){
     if(parseInt(amount)>0 && parseInt(duration)>0){
       window.called = arr[20];
       window.calls = "down";
-      window.timer = 60;
+      window.timer = duration*5;
+      window.amount = window;
+      balance = parseInt($("#balanc").text());
+      $("#balanc").text(balance - amount);
       $(".stat1").text("Bid Amount: "+amount);
       $(".stat1").css('visibility','visible');
       $(".stat2").text("Call: "+arr[20]+" DOWN");
