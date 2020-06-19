@@ -6,6 +6,12 @@ How the hell am I going to get flask to update the webpage using ajax? I am conf
 Looks like ajax data got to the client side. Not sure about live rendering yet. Lets hope for the best. Yup, got that worked out.
 Nice UI elements. Hooray!
 Kinda wrapped up here. Only need some backend python to do the actual stuff, and then we're done.
+Yup. Project complete, pack up.
+
+Future updations:
+- Multi user access
+- Multi data rate mode
+- everything else
 
 Dependencies:
 - flask
