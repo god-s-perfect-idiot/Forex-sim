@@ -70,7 +70,7 @@
                   <i class="fa fa-dollar"></i>
                 </div>
                 <div class="col-md-4 lef balance">
-                  <label id="balanc" class="balance">1000</label>
+                  <label id="balanc" class="balance"></label>
                 </div>
                 <div class="col-md-4 lef">
                   <button id="refresh" class="round2"><i class="fa fa-refresh"></i></button>
@@ -148,7 +148,17 @@ var timer = 0;
 var amount = 0;
 
 $("#refresh").click(function(){
-  $("#balanc").text(1000);
+  $.ajax({
+  			url: '/resetbalance',
+  			data: $('form').serialize(),
+  			type: 'POST',
+  			success: function(response){
+            console.log(response);
+  			},
+  			error: function(error){
+  				console.log(error);
+  			}
+  		});
 });
 
 $("#subam").click(function(){
@@ -182,17 +192,31 @@ $("#up").click(function(){
   if(calls!="up" && calls!="down"){
     var amount = $("#amount").val();
     var duration = $("#duration").val();
+    var balance = $("#balanc").text();
     if(parseInt(amount)>0 && parseInt(duration)>0){
-      window.called = arr[20];
-      window.calls = "up";
-      window.timer = duration*5;
-      window.amount = amount;
-      balance = parseInt($("#balanc").text());
-      $("#balanc").text(balance - amount);
-      $(".stat1").text("Bid Amount: "+amount);
-      $(".stat1").css('visibility','visible');
-      $(".stat2").text("Call: "+arr[20]+" UP");
-      $(".stat2").css('visibility','visible');
+      if(parseInt(amount)<=parseInt(balance)){
+        window.called = arr[20];
+        window.calls = "up";
+        window.timer = duration*5;
+        window.amount = amount;
+        $(".stat1").text("Bid Amount: "+amount);
+        $(".stat1").css('visibility','visible');
+        $(".stat2").text("Call: "+arr[20]+" UP");
+        $(".stat2").css('visibility','visible');
+        $.ajax({
+        			url: '/transact',
+        			data: {amount:amount, duration:duration, current:arr[20], ttype:"up"},
+        			type: 'POST',
+        			success: function(response){
+                if(response==1){
+                  console.log(response);
+                }
+        			},
+        			error: function(error){
+        				console.log(error);
+        			}
+        		});
+      }
     }
   }
 });
@@ -201,17 +225,31 @@ $("#down").click(function(){
   if(calls!="up" && calls!="down"){
     var amount = $("#amount").val();
     var duration = $("#duration").val();
+    var balance = $("#balanc").text();
     if(parseInt(amount)>0 && parseInt(duration)>0){
-      window.called = arr[20];
-      window.calls = "down";
-      window.timer = duration*5;
-      window.amount = window;
-      balance = parseInt($("#balanc").text());
-      $("#balanc").text(balance - amount);
-      $(".stat1").text("Bid Amount: "+amount);
-      $(".stat1").css('visibility','visible');
-      $(".stat2").text("Call: "+arr[20]+" DOWN");
-      $(".stat2").css('visibility','visible');
+      if(parseInt(amount)<=parseInt(balance)){
+        window.called = arr[20];
+        window.calls = "down";
+        window.timer = duration*5;
+        window.amount = window;
+        $(".stat1").text("Bid Amount: "+amount);
+        $(".stat1").css('visibility','visible');
+        $(".stat2").text("Call: "+arr[20]+" DOWN");
+        $(".stat2").css('visibility','visible');
+        $.ajax({
+        			url: '/transact',
+        			data: {amount:amount, duration:duration, current:arr[20], ttype:"down"},
+        			type: 'POST',
+        			success: function(response){
+                if(response==1){
+                  console.log(response);
+                }
+        			},
+        			error: function(error){
+        				console.log(error);
+        			}
+        		});
+        }
     }
   }
 });
@@ -224,6 +262,19 @@ var arr = [];
 setInterval(runf,1000);
 
 function runf(){
+
+  $.ajax({
+  			url: '/fetchbalance',
+  			data: $('form').serialize(),
+  			type: 'POST',
+  			success: function(response){
+            $("#balanc").text(response);
+  			},
+  			error: function(error){
+  				console.log(error);
+  			}
+  		});
+
 
   if(window.timer>0){
     window.timer = window.timer - 1;

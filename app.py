@@ -14,6 +14,24 @@ def refresh():
     data,timeline = model.refresh()
     return jsonify(data)
 
+@app.route("/transact",methods=['POST'])
+def transact():
+    amount = request.form.get("amount")
+    duration = request.form.get("duration")
+    current = request.form.get("current")
+    ttype = request.form.get("ttype")
+    service.transaction(amount, duration, current, ttype)
+    return jsonify(1)
+
+@app.route("/resetbalance", methods=['POST'])
+def resetbalance():
+    service.reset_balance()
+    return jsonify(1)
+
+@app.route("/fetchbalance", methods=['POST'])
+def fetchbalance():
+    return jsonify(service.balance)
+
 @app.route("/hub")
 def hub():
     data,timeline = model.generate_data()

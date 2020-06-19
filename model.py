@@ -1,6 +1,9 @@
 import model_helper as helper
 from datetime import datetime
 
+def get_history():
+    return(helper.forex_historic)
+
 def generate_data():
     current = helper.generate()
     for i in range(30):
